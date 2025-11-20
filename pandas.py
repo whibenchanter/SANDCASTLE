@@ -63,6 +63,7 @@ labels = ['Low', 'High']
 result_series = pd.cut(series, bins, labels=labels)
 result_series
 
+
 #1번부터 정답
 value_b_to_d = series['b':'d'] #
 print(value_b_to_d)
@@ -93,6 +94,57 @@ def square_odd_or_return_even(x):
 
 result_series = series.apply(square_odd_or_return_even)
 result_series
+
+# ------------------------------------------------------------------------------------------------------------------------
+
+# 데이콘 하
+
+#1. 아래 오류를 수정하라. 
+# result_series = series.fillna(mean)
+# result_series
+
+#2. 2차원 리스트를 만들고 data에 저장 후 data 이용해 아래와 같이 출력
+
+# 이름	나이	성별	도시
+# 0	철수	25	남	서울
+# 1	영희	30	여	부산
+# 2	민수	35	남	서울
+# 3	지영	28	여	대전
+
+ 
+# # 아래 틀렸는데 오류를 수정하라. 
+# columns = ['이름','나이','성별','도시']
+# data = [
+#     ['철수','영희','민수','지영'],
+#     [25,30,35,28],
+#     ['남','여','남','여'],
+#     ['서울','부산','서울','대전']
+# ]
+
+# result_df = pd.DataFrame(data, columns=columns)
+# result_df
+
+
+
+#답
+#1 mean이 어떤것의 민인지 지정되지않음
+mean = series.mean()
+result_series = series.fillna(mean)
+result_series
+
+#2 data는 행을 의미한다
+columns = ['이름','나이','성별','도시']
+data = [
+    ['철수',25,'남','서울'],
+    ['영희',30,'여','부산'],
+    ['민수',35,'남','서울'],
+    ['지영',28,'여','대전']
+]
+
+result_df = pd.DataFrame(data, columns=columns)
+result_df
+
+
 
 
 
